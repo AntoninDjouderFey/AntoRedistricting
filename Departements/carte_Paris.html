@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_5de1016d96ca6d0e111bca34fbe69551 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    
+                    <style>
+                        .foliumtooltip {
+                            
+                        }
+                       .foliumtooltip table{
+                            margin: auto;
+                        }
+                        .foliumtooltip tr{
+                            text-align: left;
+                        }
+                        .foliumtooltip th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+</head>
+<body>
+    
+    
+    <div style="position: fixed;
+         bottom: 20px; left: 20px; width: 220px; height: auto;
+         border:2px solid grey; z-index:9999; font-size:12px;
+         background-color:white; padding: 8px; border-radius: 5px;">
+    <b>Légende (Groupes politiques)</b><br>
+    <i style="background:#E90000; width:18px; height:18px; display:inline-block; border:1px solid black;"></i> Gauche<br><i style="background:#FF9F0E; width:18px; height:18px; display:inline-block; border:1px solid black;"></i> Centre<br><i style="background:#0890C5; width:18px; height:18px; display:inline-block; border:1px solid black;"></i> Droite<br><i style="background:#78668D; width:18px; height:18px; display:inline-block; border:1px solid black;"></i> Régionaliste<br><i style="background:#8D6026; width:18px; height:18px; display:inline-block; border:1px solid black;"></i> Extrême droite<br><i style="background:#AF95CC; width:18px; height:18px; display:inline-block; border:1px solid black;"></i> Autre
+    </div>
+    
+    
+            <div class="folium-map" id="map_5de1016d96ca6d0e111bca34fbe69551" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_5de1016d96ca6d0e111bca34fbe69551 = L.map(
+                "map_5de1016d96ca6d0e111bca34fbe69551",
+                {
+                    center: [48.8566, 2.3522],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 9,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_83556f051d55d4e93c5f8cda5bff2510 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_83556f051d55d4e93c5f8cda5bff2510.addTo(map_5de1016d96ca6d0e111bca34fbe69551);
+        
+    
+        function geo_json_3c59f8f6fce08faf01ba8d65a9a895ed_styler(feature) {
+            switch(feature.id) {
+                case "385": case "390": case "396": case "397": case "398": 
+                    return {"color": "black", "fillColor": "#FF9F0E", "fillOpacity": 0.7, "weight": 1};
+                default:
+                    return {"color": "black", "fillColor": "#E90000", "fillOpacity": 0.7, "weight": 1};
+            }
+        }
+
+        function geo_json_3c59f8f6fce08faf01ba8d65a9a895ed_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_3c59f8f6fce08faf01ba8d65a9a895ed = L.geoJson(null, {
+                onEachFeature: geo_json_3c59f8f6fce08faf01ba8d65a9a895ed_onEachFeature,
+            
+                style: geo_json_3c59f8f6fce08faf01ba8d65a9a895ed_styler,
+            ...{
+}
+        });
+
+        function geo_json_3c59f8f6fce08faf01ba8d65a9a895ed_add (data) {
+            geo_json_3c59f8f6fce08faf01ba8d65a9a895ed
+                .addData(data);
+        }
+            geo_json_3c59f8f6fce08faf01ba8d65a9a895ed_add({"bbox": [2.2242, 48.8159, 2.4699, 48.9021], "features": [{"bbox": [2.295, 48.8541, 2.3543, 48.8846], "geometry": {"coordinates": [[[2.3406, 48.8567], [2.3446, 48.8541], [2.3476, 48.8574], [2.3502, 48.862], [2.3543, 48.8693], [2.3479, 48.8707], [2.3479, 48.874], [2.3495, 48.8796], [2.3407, 48.8803], [2.3397, 48.882], [2.3374, 48.8824], [2.3295, 48.8846], [2.3274, 48.8835], [2.3157, 48.8812], [2.3086, 48.8803], [2.2982, 48.8781], [2.295, 48.8738], [2.2984, 48.8694], [2.2985, 48.8692], [2.2994, 48.867], [2.2995, 48.8666], [2.3017, 48.8635], [2.3187, 48.8637], [2.3312, 48.8597], [2.3377, 48.8583], [2.3406, 48.8567]]], "type": "Polygon"}, "id": "385", "properties": {"codeCirconscription": "7501", "codeDepartement": "75", "couleur": "#FF9F0E", "groupe_majoritaire": "Centre", "nomCirconscription": "1\u00e8re circonscription", "nomDepartement": "Paris", "nuance_majoritaire": "ENS"}, "type": "Feature"}, {"bbox": [2.3479, 48.8558, 2.3769, 48.8844], "geometry": {"coordinates": [[[2.3502, 48.862], [2.3567, 48.8601], [2.3594, 48.8583], [2.3649, 48.8563], [2.3685, 48.8558], [2.3667, 48.8631], [2.3643, 48.8673], [2.3679, 48.8689], [2.3769, 48.872], [2.3723, 48.8761], [2.3703, 48.878], [2.3702, 48.8827], [2.368, 48.8842], [2.359, 48.8844], [2.3495, 48.8837], [2.3495, 48.8796], [2.3479, 48.874], [2.3479, 48.8707], [2.3543, 48.8693], [2.3502, 48.862]]], "type": "Polygon"}, "id": "386", "properties": {"codeCirconscription": "7505", "codeDepartement": "75", "couleur": "#E90000", "groupe_majoritaire": "Gauche", "nomCirconscription": "5\u00e8me circonscription", "nomDepartement": "Paris", "nuance_majoritaire": "UG"}, "type": "Feature"}, {"bbox": [2.3446, 48.8395, 2.3871, 48.8689], "geometry": {"coordinates": [[[2.3446, 48.8541], [2.349, 48.8524], [2.3586, 48.8497], [2.3623, 48.8478], [2.3661, 48.845], [2.3733, 48.8395], [2.3761, 48.8402], [2.3772, 48.8431], [2.3795, 48.842], [2.3812, 48.8423], [2.3816, 48.8439], [2.3834, 48.845], [2.3833, 48.8491], [2.3844, 48.8501], [2.3825, 48.8539], [2.3871, 48.8551], [2.3846, 48.8581], [2.3812, 48.8611], [2.3786, 48.8603], [2.377, 48.8619], [2.3723, 48.8682], [2.3679, 48.8689], [2.3643, 48.8673], [2.3667, 48.8631], [2.3685, 48.8558], [2.3649, 48.8563], [2.3594, 48.8583], [2.3567, 48.8601], [2.3502, 48.862], [2.3476, 48.8574], [2.3446, 48.8541]]], "type": "Polygon"}, "id": "387", "properties": {"codeCirconscription": "7507", "codeDepartement": "75", "couleur": "#E90000", "groupe_majoritaire": "Gauche", "nomCirconscription": "7\u00e8me circonscription", "nomDepartement": "Paris", "nuance_majoritaire": "UG"}, "type": "Feature"}, {"bbox": [2.2897, 48.8368, 2.3661, 48.8637], "geometry": {"coordinates": [[[2.3446, 48.8541], [2.3406, 48.8567], [2.3377, 48.8583], [2.3312, 48.8597], [2.3187, 48.8637], [2.3017, 48.8635], [2.2992, 48.8633], [2.2937, 48.8612], [2.2916, 48.8597], [2.2897, 48.8582], [2.3005, 48.8514], [2.3019, 48.8535], [2.3058, 48.8544], [2.3098, 48.8539], [2.3123, 48.8555], [2.3147, 48.8526], [2.3191, 48.8517], [2.3205, 48.8484], [2.3268, 48.8516], [2.332, 48.8521], [2.3315, 48.8461], [2.3348, 48.8424], [2.3366, 48.8417], [2.3367, 48.8397], [2.3421, 48.8383], [2.347, 48.8373], [2.3519, 48.8368], [2.3619, 48.8402], [2.3626, 48.841], [2.3661, 48.845], [2.3623, 48.8478], [2.3586, 48.8497], [2.349, 48.8524], [2.3446, 48.8541]]], "type": "Polygon"}, "id": "388", "properties": {"codeCirconscription": "7502", "codeDepartement": "75", "couleur": "#E90000", "groupe_majoritaire": "Gauche", "nomCirconscription": "2\u00e8me circonscription", "nomDepartement": "Paris", "nuance_majoritaire": "UG"}, "type": "Feature"}, {"bbox": [2.3113, 48.8225, 2.3421, 48.8521], "geometry": {"coordinates": [[[2.3205, 48.8484], [2.3167, 48.8469], [2.3199, 48.8452], [2.3246, 48.8436], [2.3215, 48.8411], [2.3199, 48.8405], [2.3113, 48.8335], [2.3144, 48.8318], [2.3226, 48.8293], [2.3197, 48.8268], [2.3251, 48.8245], [2.331, 48.824], [2.3351, 48.8248], [2.3373, 48.8225], [2.3385, 48.8225], [2.3416, 48.8265], [2.3411, 48.832], [2.3421, 48.8383], [2.3367, 48.8397], [2.3366, 48.8417], [2.3348, 48.8424], [2.3315, 48.8461], [2.332, 48.8521], [2.3268, 48.8516], [2.3205, 48.8484]]], "type": "Polygon"}, "id": "389", "properties": {"codeCirconscription": "7511", "codeDepartement": "75", "couleur": "#E90000", "groupe_majoritaire": "Gauche", "nomCirconscription": "11\u00e8me circonscription", "nomDepartement": "Paris", "nuance_majoritaire": "UG"}, "type": "Feature"}, {"bbox": [2.2813, 48.8324, 2.3246, 48.8582], "geometry": {"coordinates": [[[2.3205, 48.8484], [2.3191, 48.8517], [2.3147, 48.8526], [2.3123, 48.8555], [2.3098, 48.8539], [2.3058, 48.8544], [2.3019, 48.8535], [2.3005, 48.8514], [2.2897, 48.8582], [2.2873, 48.8554], [2.2813, 48.8512], [2.2827, 48.8482], [2.2874, 48.8458], [2.2968, 48.8422], [2.2986, 48.8429], [2.3003, 48.8396], [2.3036, 48.8402], [2.3048, 48.8394], [2.3066, 48.8363], [2.3099, 48.8324], [2.3113, 48.8335], [2.3199, 48.8405], [2.3215, 48.8411], [2.3246, 48.8436], [2.3199, 48.8452], [2.3167, 48.8469], [2.3205, 48.8484]]], "type": "Polygon"}, "id": "390", "properties": {"codeCirconscription": "7512", "codeDepartement": "75", "couleur": "#FF9F0E", "groupe_majoritaire": "Centre", "nomCirconscription": "12\u00e8me circonscription", "nomDepartement": "Paris", "nuance_majoritaire": "ENS"}, "type": "Feature"}, {"bbox": [2.3256, 48.8796, 2.3532, 48.9015], "geometry": {"coordinates": [[[2.3495, 48.8796], [2.3495, 48.8837], [2.3517, 48.8887], [2.3516, 48.8911], [2.3532, 48.8937], [2.3525, 48.8979], [2.3517, 48.8988], [2.3525, 48.9015], [2.3352, 48.9011], [2.3356, 48.8994], [2.3384, 48.8981], [2.3425, 48.8979], [2.3392, 48.8913], [2.3339, 48.8918], [2.3275, 48.8931], [2.3256, 48.8875], [2.3274, 48.8835], [2.3295, 48.8846], [2.3374, 48.8824], [2.3397, 48.882], [2.3407, 48.8803], [2.3495, 48.8796]]], "type": "Polygon"}, "id": "391", "properties": {"codeCirconscription": "7518", "codeDepartement": "75", "couleur": "#E90000", "groupe_majoritaire": "Gauche", "nomCirconscription": "18\u00e8me circonscription", "nomDepartement": "Paris", "nuance_majoritaire": "UG"}, "type": "Feature"}, {"bbox": [2.3679, 48.8481, 2.4021, 48.8735], "geometry": {"coordinates": [[[2.3679, 48.8689], [2.3723, 48.8682], [2.377, 48.8619], [2.3786, 48.8603], [2.3812, 48.8611], [2.3846, 48.8581], [2.3871, 48.8551], [2.3825, 48.8539], [2.3844, 48.8501], [2.396, 48.8484], [2.3991, 48.8481], [2.3989, 48.8497], [2.3984, 48.8513], [2.3945, 48.8563], [2.3982, 48.857], [2.4021, 48.8591], [2.401, 48.8602], [2.4, 48.8632], [2.3945, 48.87], [2.3902, 48.8732], [2.3848, 48.8711], [2.3832, 48.8735], [2.3769, 48.872], [2.3679, 48.8689]]], "type": "Polygon"}, "id": "392", "properties": {"codeCirconscription": "7506", "codeDepartement": "75", "couleur": "#E90000", "groupe_majoritaire": "Gauche", "nomCirconscription": "6\u00e8me circonscription", "nomDepartement": "Paris", "nuance_majoritaire": "UG"}, "type": "Feature"}, {"bbox": [2.3733, 48.817, 2.4699, 48.8542], "geometry": {"coordinates": [[[2.3844, 48.8501], [2.3833, 48.8491], [2.3834, 48.845], [2.3816, 48.8439], [2.3812, 48.8423], [2.3795, 48.842], [2.3772, 48.8431], [2.3761, 48.8402], [2.3733, 48.8395], [2.3784, 48.835], [2.3901, 48.8257], [2.3943, 48.8275], [2.4022, 48.8296], [2.405, 48.8284], [2.4092, 48.8255], [2.4126, 48.8247], [2.4165, 48.8247], [2.42, 48.8241], [2.428, 48.8239], [2.4304, 48.8229], [2.4373, 48.8182], [2.4478, 48.818], [2.4535, 48.8171], [2.4591, 48.817], [2.4627, 48.8191], [2.4657, 48.8262], [2.4647, 48.8276], [2.4658, 48.8319], [2.4695, 48.8345], [2.4699, 48.8364], [2.4673, 48.8391], [2.4649, 48.8414], [2.4586, 48.8434], [2.4465, 48.845], [2.4466, 48.8458], [2.4408, 48.846], [2.4405, 48.8444], [2.438, 48.8447], [2.4372, 48.8409], [2.4249, 48.8418], [2.4218, 48.8444], [2.4199, 48.8435], [2.4195, 48.8414], [2.4209, 48.8393], [2.4221, 48.8358], [2.4173, 48.8342], [2.4139, 48.8337], [2.4122, 48.8345], [2.4157, 48.845], [2.4163, 48.8492], [2.4155, 48.8542], [2.4061, 48.8527], [2.4066, 48.8505], [2.4051, 48.8501], [2.4001, 48.8502], [2.3989, 48.8497], [2.3991, 48.8481], [2.396, 48.8484], [2.3844, 48.8501]]], "type": "Polygon"}, "id": "393", "properties": {"codeCirconscription": "7508", "codeDepartement": "75", "couleur": "#E90000", "groupe_majoritaire": "Gauche", "nomCirconscription": "8\u00e8me circonscription", "nomDepartement": "Paris", "nuance_majoritaire": "UG"}, "type": "Feature"}, {"bbox": [2.3411, 48.8179, 2.3901, 48.845], "geometry": {"coordinates": [[[2.3421, 48.8383], [2.3411, 48.832], [2.345, 48.8306], [2.35, 48.8296], [2.355, 48.8313], [2.3568, 48.8301], [2.3657, 48.8186], [2.369, 48.8179], [2.3808, 48.8217], [2.3815, 48.8224], [2.3901, 48.8257], [2.3784, 48.835], [2.3733, 48.8395], [2.3661, 48.845], [2.3626, 48.841], [2.3666, 48.8385], [2.364, 48.8375], [2.3619, 48.8402], [2.3519, 48.8368], [2.347, 48.8373], [2.3421, 48.8383]]], "type": "Polygon"}, "id": "394", "properties": {"codeCirconscription": "7509", "codeDepartement": "75", "couleur": "#E90000", "groupe_majoritaire": "Gauche", "nomCirconscription": "9\u00e8me circonscription", "nomDepartement": "Paris", "nuance_majoritaire": "UG"}, "type": "Feature"}, {"bbox": [2.3013, 48.8159, 2.369, 48.8335], "geometry": {"coordinates": [[[2.3411, 48.832], [2.3416, 48.8265], [2.3385, 48.8225], [2.3373, 48.8225], [2.3351, 48.8248], [2.331, 48.824], [2.3251, 48.8245], [2.3197, 48.8268], [2.3226, 48.8293], [2.3144, 48.8318], [2.3113, 48.8335], [2.3099, 48.8324], [2.3013, 48.8251], [2.3325, 48.8182], [2.3319, 48.817], [2.3472, 48.8161], [2.3489, 48.8169], [2.3524, 48.8186], [2.3559, 48.8159], [2.3633, 48.8161], [2.369, 48.8179], [2.3657, 48.8186], [2.3568, 48.8301], [2.355, 48.8313], [2.35, 48.8296], [2.345, 48.8306], [2.3411, 48.832]]], "type": "Polygon"}, "id": "395", "properties": {"codeCirconscription": "7510", "codeDepartement": "75", "couleur": "#E90000", "groupe_majoritaire": "Gauche", "nomCirconscription": "10\u00e8me circonscription", "nomDepartement": "Paris", "nuance_majoritaire": "UG"}, "type": "Feature"}, {"bbox": [2.2628, 48.8251, 2.3099, 48.8512], "geometry": {"coordinates": [[[2.3099, 48.8324], [2.3066, 48.8363], [2.3048, 48.8394], [2.3036, 48.8402], [2.3003, 48.8396], [2.2986, 48.8429], [2.2968, 48.8422], [2.2874, 48.8458], [2.2827, 48.8482], [2.2813, 48.8512], [2.2805, 48.8506], [2.279, 48.8495], [2.2755, 48.8467], [2.266, 48.8368], [2.2628, 48.8339], [2.2675, 48.8346], [2.2699, 48.833], [2.2673, 48.8315], [2.2676, 48.828], [2.2728, 48.8279], [2.2791, 48.8325], [2.2922, 48.8271], [2.3013, 48.8251], [2.3099, 48.8324]]], "type": "Polygon"}, "id": "396", "properties": {"codeCirconscription": "7513", "codeDepartement": "75", "couleur": "#FF9F0E", "groupe_majoritaire": "Centre", "nomCirconscription": "13\u00e8me circonscription", "nomDepartement": "Paris", "nuance_majoritaire": "ENS"}, "type": "Feature"}, {"bbox": [2.2242, 48.8339, 2.2916, 48.8765], "geometry": {"coordinates": [[[2.2916, 48.8597], [2.2889, 48.861], [2.2867, 48.8639], [2.2861, 48.8664], [2.2811, 48.8678], [2.2773, 48.864], [2.2735, 48.8644], [2.2685, 48.8624], [2.2662, 48.8668], [2.2625, 48.8697], [2.2591, 48.8672], [2.255, 48.8741], [2.2457, 48.8765], [2.2433, 48.874], [2.2404, 48.872], [2.2317, 48.8691], [2.2284, 48.8654], [2.2257, 48.8594], [2.2245, 48.8565], [2.2242, 48.8535], [2.2266, 48.8528], [2.2392, 48.85], [2.2424, 48.8477], [2.2508, 48.8455], [2.2525, 48.8455], [2.2512, 48.8429], [2.2517, 48.8388], [2.2551, 48.8348], [2.2628, 48.8339], [2.266, 48.8368], [2.2755, 48.8467], [2.279, 48.8495], [2.2805, 48.8506], [2.2813, 48.8512], [2.2873, 48.8554], [2.2897, 48.8582], [2.2916, 48.8597]]], "type": "Polygon"}, "id": "397", "properties": {"codeCirconscription": "7514", "codeDepartement": "75", "couleur": "#FF9F0E", "groupe_majoritaire": "Centre", "nomCirconscription": "14\u00e8me circonscription", "nomDepartement": "Paris", "nuance_majoritaire": "ENS"}, "type": "Feature"}, {"bbox": [2.255, 48.8597, 2.3157, 48.8921], "geometry": {"coordinates": [[[2.3017, 48.8635], [2.2995, 48.8666], [2.2994, 48.867], [2.2985, 48.8692], [2.2984, 48.8694], [2.295, 48.8738], [2.2982, 48.8781], [2.3086, 48.8803], [2.3157, 48.8812], [2.3148, 48.8835], [2.3108, 48.8847], [2.3055, 48.889], [2.2995, 48.8921], [2.295, 48.8899], [2.2916, 48.8895], [2.2845, 48.8856], [2.2809, 48.8828], [2.2799, 48.8786], [2.2775, 48.878], [2.2585, 48.8804], [2.255, 48.8741], [2.2591, 48.8672], [2.2625, 48.8697], [2.2662, 48.8668], [2.2685, 48.8624], [2.2735, 48.8644], [2.2773, 48.864], [2.2811, 48.8678], [2.2861, 48.8664], [2.2867, 48.8639], [2.2889, 48.861], [2.2916, 48.8597], [2.2937, 48.8612], [2.2992, 48.8633], [2.3017, 48.8635]]], "type": "Polygon"}, "id": "398", "properties": {"codeCirconscription": "7504", "codeDepartement": "75", "couleur": "#FF9F0E", "groupe_majoritaire": "Centre", "nomCirconscription": "4\u00e8me circonscription", "nomDepartement": "Paris", "nuance_majoritaire": "ENS"}, "type": "Feature"}, {"bbox": [2.2995, 48.8812, 2.3425, 48.9011], "geometry": {"coordinates": [[[2.3274, 48.8835], [2.3256, 48.8875], [2.3275, 48.8931], [2.3339, 48.8918], [2.3392, 48.8913], [2.3425, 48.8979], [2.3384, 48.8981], [2.3356, 48.8994], [2.3352, 48.9011], [2.3204, 48.9008], [2.3199, 48.9005], [2.3185, 48.8996], [2.3077, 48.896], [2.2995, 48.8921], [2.3055, 48.889], [2.3108, 48.8847], [2.3148, 48.8835], [2.3157, 48.8812], [2.3274, 48.8835]]], "type": "Polygon"}, "id": "399", "properties": {"codeCirconscription": "7503", "codeDepartement": "75", "couleur": "#E90000", "groupe_majoritaire": "Gauche", "nomCirconscription": "3\u00e8me circonscription", "nomDepartement": "Paris", "nuance_majoritaire": "UG"}, "type": "Feature"}, {"bbox": [2.3495, 48.8761, 2.3849, 48.9018], "geometry": {"coordinates": [[[2.3495, 48.8837], [2.359, 48.8844], [2.368, 48.8842], [2.3702, 48.8827], [2.3703, 48.878], [2.3723, 48.8761], [2.3742, 48.8771], [2.3744, 48.8797], [2.3738, 48.8813], [2.3808, 48.8855], [2.3849, 48.8868], [2.3831, 48.8901], [2.3774, 48.8935], [2.3728, 48.8937], [2.3705, 48.8966], [2.3703, 48.9018], [2.3656, 48.9018], [2.3525, 48.9015], [2.3517, 48.8988], [2.3525, 48.8979], [2.3532, 48.8937], [2.3516, 48.8911], [2.3517, 48.8887], [2.3495, 48.8837]]], "type": "Polygon"}, "id": "400", "properties": {"codeCirconscription": "7517", "codeDepartement": "75", "couleur": "#E90000", "groupe_majoritaire": "Gauche", "nomCirconscription": "17\u00e8me circonscription", "nomDepartement": "Paris", "nuance_majoritaire": "UG"}, "type": "Feature"}, {"bbox": [2.3703, 48.872, 2.4108, 48.9021], "geometry": {"coordinates": [[[2.3769, 48.872], [2.3832, 48.8735], [2.3896, 48.8753], [2.3954, 48.8753], [2.4026, 48.876], [2.4108, 48.8784], [2.4094, 48.8803], [2.4046, 48.8813], [2.4015, 48.8826], [2.3993, 48.8854], [2.3989, 48.8895], [2.3977, 48.8946], [2.3955, 48.8983], [2.3908, 48.9009], [2.3845, 48.9021], [2.3703, 48.9018], [2.3705, 48.8966], [2.3728, 48.8937], [2.3774, 48.8935], [2.3831, 48.8901], [2.3849, 48.8868], [2.3808, 48.8855], [2.3738, 48.8813], [2.3744, 48.8797], [2.3742, 48.8771], [2.3723, 48.8761], [2.3769, 48.872]]], "type": "Polygon"}, "id": "401", "properties": {"codeCirconscription": "7516", "codeDepartement": "75", "couleur": "#E90000", "groupe_majoritaire": "Gauche", "nomCirconscription": "16\u00e8me circonscription", "nomDepartement": "Paris", "nuance_majoritaire": "UG"}, "type": "Feature"}, {"bbox": [2.3832, 48.8497, 2.4155, 48.8784], "geometry": {"coordinates": [[[2.3989, 48.8497], [2.4001, 48.8502], [2.4051, 48.8501], [2.4066, 48.8505], [2.4061, 48.8527], [2.4155, 48.8542], [2.414, 48.8647], [2.414, 48.8692], [2.4134, 48.8731], [2.4125, 48.8764], [2.4108, 48.8784], [2.4026, 48.876], [2.3954, 48.8753], [2.3896, 48.8753], [2.3832, 48.8735], [2.3848, 48.8711], [2.3902, 48.8732], [2.3945, 48.87], [2.4, 48.8632], [2.401, 48.8602], [2.4021, 48.8591], [2.3982, 48.857], [2.3945, 48.8563], [2.3984, 48.8513], [2.3989, 48.8497]]], "type": "Polygon"}, "id": "402", "properties": {"codeCirconscription": "7515", "codeDepartement": "75", "couleur": "#E90000", "groupe_majoritaire": "Gauche", "nomCirconscription": "15\u00e8me circonscription", "nomDepartement": "Paris", "nuance_majoritaire": "DVG"}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+    geo_json_3c59f8f6fce08faf01ba8d65a9a895ed.bindTooltip(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature => {
+        if (feature === null) {
+            return '';
+        } else if (typeof(feature)=='object') {
+            return JSON.stringify(feature);
+        } else {
+            return feature;
+        }
+    }
+    let fields = ["nomCirconscription", "groupe_majoritaire"];
+    let aliases = ["Circonscription:", "Groupe majoritaire:"];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <th>${aliases[i].toLocaleString()}</th>
+            
+            <td>${handleObject(layer.feature.properties[v]).toLocaleString()}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{
+  "sticky": true,
+  "className": "foliumtooltip",
+});
+                     
+    
+            geo_json_3c59f8f6fce08faf01ba8d65a9a895ed.addTo(map_5de1016d96ca6d0e111bca34fbe69551);
+        
+</script>
+</html>
